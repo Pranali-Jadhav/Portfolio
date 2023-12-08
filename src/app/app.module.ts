@@ -11,15 +11,13 @@ library.add(faMusic);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { NewlandComponent } from './newland/newland.component';
+
 import { Portfolio1Component } from './portfolio1/portfolio1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
-    NewlandComponent,
+  
     Portfolio1Component
   ],
   imports: [
