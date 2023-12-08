@@ -6,13 +6,15 @@
     :root {
         --primary-color: #f9532d;
         --primary-dark: #0d1021;
-        --primary-font: 'Outfit', sans-serif;
+       
     }
 
     * {
         margin: 0;
         padding: 0;
         scroll-behavior: smooth;
+      
+    font-family: 'Poppins', sans-serif;
     }
 
     body {
