@@ -1,0 +1,296 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+ <!-- ---------------Head Page---------------- -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Portfolio</title>
+</head>
+
+<body>
+
+    <!-- -----------Header Part----------- -->
+
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">Pranali.</a>
+            </div>
+            <input type="checkbox" id="click">
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>   
+            <ul>
+                <li><a (click)="scrollToSection('home')" (mouseenter)="changeCursor('pointer')" (mouseleave)="changeCursor('auto')"  class="active" style="--navAni:1">Home</a></li>
+                <li><a (click)="scrollToSection('myservices')" (mouseenter)="changeCursor('pointer')" (mouseleave)="changeCursor('auto')" style="--navAni:3">Services</a></li>
+                <li><a (click)="scrollToSection('hackathons')" (mouseenter)="changeCursor('pointer')" (mouseleave)="changeCursor('auto')" style="--navAni:3">Hackathons</a></li> 
+                <li><a (click)="scrollToSection('portfolio')" (mouseenter)="changeCursor('pointer')" (mouseleave)="changeCursor('auto')" style="--navAni:4">Portfolio</a></li>
+                <li><a (click)="scrollToSection('contactus')" (mouseenter)="changeCursor('pointer')" (mouseleave)="changeCursor('auto')" style="--navAni:5">Contact</a></li>
+            </ul>
+          </div>
+    </header>
+
+
+    <section class="container">
+
+        <!-- ------------Home Page----------- -->
+
+        <div class="main" id="home">
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/pranali-jadhav-a81959227" target="_blank" style="--socialAni:1"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/pranali_jadhav2002/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="--socialAni:2" target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/Pranali-Jadhav" target="_blank" style="--socialAni:4"><i class='bx bxl-github'></i></a>
+                </div>
+                <div class="detail">
+                    <h1>Hi, I'm <span>Pranali</span></h1>
+                    <h3>Software Developer</h3>
+                    <p>I'm a dynamic professional dedicated to crafting cutting-edge software solutions.
+                        My expertise spans development, maintenance, and effective collaboration in diverse teams.
+                    </p>
+                    <div class="btn">
+                        <button (click)="downloadResume()">Download CV</button>
+                    </div>
+                </div>
+                <div class="img-sec">
+                    <div class="images">
+                    <img src="../assets/Images/per1.jpg" alt="" class="img-1">
+                    <img src="../assets/Images/per3.jpg" alt="" class="img-2">
+                    <img src="../assets/Images/per5.jpg" alt="" class="img-3">
+                    </div>
+                    <button (click)="toggleSound()" class="musicButton">
+                    <span><i class="fas fa-music"></i></span> Play Sound</button>
+                </div>
+        </div>
+
+
+        <!-- ---------------About Page---------------- -->
+
+        <div class="Aboutme" id="aboutUs">
+                <div class="AboutMeImageDiv" [@slideFromRight]="pState">
+                    <img src="../assets/Images/cg1.png" alt="" class="aboutMeimage">  
+                </div>
+                <div class="aboutmeText">
+                    <h1 [@slideFromLeft]="h1State">About me</h1>
+                    <p [@slideFromLeft]="h1State">B.Tech IT grad fueled by a love for code, 
+                        ready to turn lines into solutions and errors into opportunities in the world of software development.</p>
+                        <div class="tabs" [@slideFromLeft]="h1State">
+                            <div class="tab" [class.active]="activeTab === 'content1'" (click)="showContent('content1')">Experience</div>
+                            <div class="tab" [class.active]="activeTab === 'content2'" (click)="showContent('content2')">Education</div>
+                            <div class="tab" [class.active]="activeTab === 'content3'" (click)="showContent('content3')">Skills</div>
+                        </div>
+                        <div [ngSwitch]="activeTab" [@slideFromLeft]="h1State">
+                            <div *ngSwitchCase="'content1'" class="content1" [@slideFromLeft]="h1State">
+                            <p>May'23 - July'23</p>
+                            <h4>Software Developer Intern at Providence India</h4>
+                            <ul class="list">
+                                <li>Acquired foundational skills in Angular.</li>
+                                <li> Designed user interfaces and collaborating on API-based integration with databases.</li>
+                                <li> Built deployable comment section component for a live project</li>
+                            </ul>
+                            </div>
+                            <div *ngSwitchCase="'content2'" class="content2" >
+                                <p>Jan'21 - April'24</p>
+                                <h4>Cummins College Of Engineering - 9.01 CGPA</h4>
+                                <p>Jun'18 - April'20</p>
+                                <h4>Abasaheb Garware College - 86.46%</h4>
+                                <p>Jun'06 - April'18</p>
+                                <h4>Nirmala Convent School - 96.60%</h4>
+                            </div>
+                            <div *ngSwitchCase="'content3'" class="content3" >
+                                <p>Few of the many skills.</p>
+                            <ul>
+                                <li>Angular</li>
+                                <li>Flutter</li>
+                                <li>Figma</li>
+                                <li>Competitive Programming</li>
+                                <li>Object Oriented Programming</li>
+                                <li>DataBase Management System</li>
+                            </ul>
+                            </div>
+                        </div>
+                </div>
+        </div>
+
+         <!-- ---------------Service Page--------------- -->
+
+        <div class="MyServices" id="myservices">
+                <h1 >My Services</h1>
+                <div class="serviceBoxes" >
+                    <div class="boxes" [@boxSlide]="boxStates[0]" [@boxHover]="boxHoverState[0]" (mouseenter)="onBoxHover('hover', 0)" (mouseleave)="onBoxHover('rest', 0)"> <i class="fas fa-code" style="font-size: 3em;"></i>
+                        <p>Web Development</p>
+                        <h4>Crafting digital wonders with Angular expertise, venturing into React realms. 
+                            Connoisseur of responsive design, honed through FreeCodeCamp odysseys. 
+                            Ready to infuse creativity into your digital landscape!</h4>
+                    </div>
+                    
+                    <div class="boxes" [@boxSlide]="boxStates[1]" [@boxHover]="boxHoverState[1]" (mouseenter)="onBoxHover('hover', 1)" (mouseleave)="onBoxHover('rest', 1)">
+                        <i class="fab fa-android" style="font-size: 3em;"></i>
+                        <p>Android Development</p>
+                        <h4>Enthusiastic about Android app development, 
+                            fluent in Kotlin and Java design. 
+                            Flutter and Dart maestro, bringing creativity to three unique Android apps across various languages.</h4>
+                    </div>
+                
+                    <div class="boxes" [@boxSlide]="boxStates[2]" [@boxHover]="boxHoverState[2]" (mouseenter)="onBoxHover('hover', 2)" (mouseleave)="onBoxHover('rest', 2)">
+                        <i class="fas fa-crop" style="font-size: 3em;"></i>
+                        <p>UI/UX Design</p>
+                        <h4>I thrive to blend creativity with user-centric design, using tools like Adobe Creative Suite and Figma.
+                            I create visually appealing interfaces through user-centric research for seamless experiences.
+                        </h4>
+                    </div>
+                </div>
+        </div>
+
+
+         <!-- ---------------Hackathons Page--------------- -->
+
+        <div class="hackathons" id="hackathons">
+                    <h1>Hackathons</h1>
+                    <div class="companies">
+                    <div class="walmart" [@walmartAnimation]="walmartState">
+                        <div class="walmart-image-div"><img src="../assets/Images/walmart.png">
+                        </div>
+                        <div class="walmart-divider">
+                        </div>
+                        <div class="hacktext">
+                            <div class="walmart-text-div"><h4>Walmart Hackathon</h4>
+                            <p>During the Walmart hackathon, our focus revolved around the theme of "Leveraging Advanced Machine Learning Techniques for Fake Reviews Detection." Notably, we actively pitched and championed this innovative idea.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Google" [@googleAnimation]="googleState">
+                        <div class="hacktext">
+                            <div class="google-text-div"><h4>Google Developers Hackathon</h4>
+                                <p>Took part in a Google Developers hackathon and secured victory by presenting an Android note-keeping application developed in Kotlin. The application effectively met the specified requirements set by the organizers.
+                            </div>
+                        </div>
+                        <div class="google-divider">
+
+                        </div>
+                        <div class="google-image-div">
+                            <img src="../assets/Images/google.png">
+                        </div>
+                    </div> 
+                    <div class="sahaj" [@sahajAnimation]="sahajState">
+                        <div class="sahaj-image-div">
+                            <img src="../assets/Images/sahaj.png">
+                        </div>
+                        <div class="sahaj-divider">
+
+                        </div>
+                        <div class="hacktext">
+                            <div class="sahaj-text-div">
+                                <h4>Sahaj Nano Hackathon</h4>
+                                <p>Participated in the Sahaj hackathon and emerged victorious, immersing myself in their office to craft a code symphony. I skillfully implemented the functionalities outlined in the given specifications, creating a digital marketplace tailored for entrepreneurs.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- -------------- Projects Page---------------- -->
+
+        <div class="Projects" id="portfolio">
+                <h1>Projects</h1>
+                <p>"Welcome to my coding world, where creativity and bugs play hide-and-seek in every project!" </p>
+                <div class="slider-container">
+            
+                <div class="slider-container">
+                    <div class="controls" >
+                        <div class="prev" (click)="prevSlide()"><i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="content-container">
+                            <div class="slides" [style.transform]="'translateX(' + -currentIndex * 100 + '%)'" >
+                                <div class="slide" *ngFor="let slide of slides" >
+                                    <div class="slideimage" [@slideImageAnimation]="slideImageState">
+                                        <img [src]="slide.imagePath" alt="Slide" />
+                                    </div>
+                                    <div class="slide-content" [@slideContentAnimation]="slideContentState">
+                                        <h3>{{ slide.projectName }}</h3>
+                                        <p>{{ slide.projectDescription }}</p>
+                                        <a class="slide-button" [href]="slide.projectLink" target="_blank" style="text-decoration: none;">Project link  <span><i class="fas fa-arrow-right icon"></i></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="next temp" (click)="nextSlide()"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="dots">
+                        <span *ngFor="let slide of slides; let i = index" class="dot" [class.active]="i === currentIndex" (click)="goToSlide(i)"></span>
+                    </div>
+                    </div>
+    
+                </div>
+        </div>
+
+         <!-- ----------------Contact Page----------------- -->
+
+        <div class="contact" [@contactSlide]="contactState" id="contactus">
+            <h1>Let's <span>Connect</span></h1>
+            <div class="contactDiv">
+                <div class="contactUsLeft">
+                  <p>Drop me a message, and let's code something epic together. 
+                    If bugs were dollars, I'd be a billionaire by now, 
+                    but let's strive for bug-free greatness</p>
+                  
+                </div>
+           
+            </div>
+            <div class="body" >
+                <div class="container1">
+                    <div class="box1" [@boxEntrance]="boxAnimationStates[0]" [@boxHover]="boxHoverState[0]" (mouseenter)="onBoxHover('hover', 0)" (mouseleave)="onBoxHover('rest', 0)">
+                        <div class="textbx">
+                            <div class="iconText">
+                                <i class="fa fa-envelope icon1"></i>
+                                <h2>Email</h2>
+                            </div>
+                            <p>pranalidjadhav2002@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="box1" [@boxEntrance]="boxAnimationStates[1]" [@boxHover]="boxHoverState[1]" (mouseenter)="onBoxHover('hover', 1)" (mouseleave)="onBoxHover('rest', 1)">
+                        <div class="textbx">
+                            <div class="iconText">
+                                <i class="fa fa-phone icon1"></i>
+                                <h2>Phone</h2>
+                            </div>
+                            <p>+91 XXX-XXX-XXXX</p>
+                        </div>
+                    </div>
+                    <div class="box1" [@boxEntrance]="boxAnimationStates[2]" [@boxHover]="boxHoverState[2]" (mouseenter)="onBoxHover('hover', 2)" (mouseleave)="onBoxHover('rest', 2)">
+                        <div class="textbx">
+                            <div class="iconText">
+                                <i class="fas fa-home icon1"></i>
+                                <h2>Address</h2>
+                            </div>
+                            <p>Pune, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <!-- -------------------Footer Page---------------- -->
+        <div class="end">
+            <div class="last-text">
+                <p>Design By Pranali Jadhav</p>
+            </div>
+            <div class="top">
+                <a (click)="scrollToSection('home')" (mouseenter)="changeCursor('pointer')" (mouseleave)="changeCursor('auto')"><i class='bx bx-up-arrow-alt' ></i></a>
+            </div>
+        </div>
+        
+    </section>
+    
+    
+</body>
+
+</html>
